@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  mytb:
+    restart: "no"
+    image: "thingsboard/tb-postgres"
+    ports:
+      - "8080:9090"
+      - "1883:1883"
+      - "7070:7070"
+      - "5683-5688:5683-5688/udp"
+    environment:
+      TB_QUEUE_TYPE: in-memory
+volumes:
+  mytb-data:
+    external: true
+  mytb-logs:
+    external: true
